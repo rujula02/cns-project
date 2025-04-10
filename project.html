@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rujula Navale - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #7f5af0;
+      --background: #f3f4f6;
+      --section-bg: #fff;
+      --text-dark: #1e1e1e;
+      --text-light: #444;
+      --card-bg: #f9f9f9;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      font-family: 'Poppins', sans-serif;
+      height: 100%;
+      background: var(--background);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("background.png") no-repeat center bottom;
+      background-size: contain;
+      opacity: 0.5;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    nav, footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      z-index: 1;
+    }
+
+    nav { justify-content: flex-end; }
+    nav a, footer a {
+      color: #5f5f5f;
+      text-decoration: none;
+      margin-left: 1.5rem;
+    }
+
+    nav a:last-child, footer a {
+      color: var(--primary-color);
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 1;
+      padding-top: 4rem;
+    }
+
+    main h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    main h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      font-family: Georgia, serif;
+      color: var(--text-dark);
+    }
+
+    main h2 span { color: var(--primary-color); }
+    main h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .projects, .skills {
+      background: var(--section-bg);
+    }
+
+    .about, .achievements, .contact {
+      background: #fefefe;
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .project {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      width: 100%;
+    }
+
+    .project:hover { transform: translateY(-5px); }
+    .project h3 { color: var(--primary-color); margin-bottom: 0.8rem; }
+
+    .project-video {
+      width: 400px;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about-img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .about-text {
+      max-width: 600px;
+      text-align: left;
+      font-size: 1.1rem;
+      color: var(--text-light);
+    }
+
+    .about-text p { margin-bottom: 1.2rem; }
+
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .skills-list li {
+      background: var(--card-bg);
+      padding: 1.2rem 1.5rem;
+      border-left: 5px solid var(--primary-color);
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .achievements-list {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .achievement {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      max-width: 400px;
+    }
+
+    .achievement:hover { transform: translateY(-5px); }
+
+    .achievement img {
+      width: 100%;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .contact p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .contact div {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .contact a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      main h1 { font-size: 2.5rem; }
+      main h2 { font-size: 1.8rem; }
+      main h3 { font-size: 1.4rem; }
+      .about-content { flex-direction: column; text-align: center; }
+      .about-text { text-align: center; }
+      .project-video { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Say Hi!</a>
+    </nav>
+    <main>
+      <h1>Hello!</h1>
+      <h2>I AM <span>RUJULA NAVALE</span></h2>
+      <h3>ENGINEER • INNOVATOR • DREAMER</h3>
+    </main>
+    <footer>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </footer>
+  </div>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <img src="me.jpg" alt="Rujula Navale" class="about-img" />
+      <div class="about-text">
+        <p><strong>Rujula Rajesh Navale</strong>, Electronics and Communication Engineering student in MITWPU with a GPA of <strong>8.68</strong>.</p>
+        <p>Passionate about AI, Robotics, and Embedded Systems. Driven to make a meaningful impact through tech innovation!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <h2>My Projects</h2>
+    <div class="project-list">
+
+      <div class="project">
+        <video controls class="project-video">
+          <source src="video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3>Music Rhythm LED Flash Light</h3>
+        <p>LED system synchronized with music beats using audio signal processing.</p>
+        <ul>
+          <li>Used microphone sensor</li>
+          <li>Pattern control with real-time detection</li>
+          <li>Tech: Arduino, Sound Sensor, C++</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <video controls class="project-video">
+          <source src="HD.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h3>Gesture Controlled Car</h3>
+        <p>Designed and developed a gesture-controlled robotic car.</p>
+        <ul>
+          <li>Real-time control with wireless modules</li>
+          <li>Gesture detection using MPU6050</li>
+          <li>Technologies: Arduino, C++, Accelerometer</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <h2>My Skills</h2>
+    <ul class="skills-list">
+      <li><strong>Programming Languages:</strong> C, C++, MATLAB, Python (learning AI & ML)</li>
+      <li><strong>Embedded Systems & Robotics:</strong> Arduino, Raspberry Pi, Microcontrollers</li>
+      <li><strong>AI & Machine Learning:</strong> Basic understanding, currently learning</li>
+      <li><strong>Control Systems:</strong> Basic knowledge, interested in Advanced Control Systems</li>
+      <li><strong>Software & Tools:</strong> MATLAB, Keil, AutoCAD (for circuit design)</li>
+    </ul>
+  </section>
+
+  <!-- Achievements Section -->
+  <section class="achievements" id="achievements">
+    <h2>Achievements</h2>
+    <div class="achievements-list">
+      <div class="achievement">
+        <h3>2nd Position in BEEE Project Exhibition</h3>
+        <p>Secured 2nd place for innovative project presentation.</p>
+        <img src="beee.jpg" alt="BEEE Certificate">
+      </div>
+      <div class="achievement">
+        <h3>Smart India Hackathon Qualification</h3>
+        <p>Qualified for the 2nd round of SIH competition.</p>
+        <img src="sih.jpg" alt="SIH Certificate">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <p>I’d love to connect! Feel free to reach out via any of the channels below:</p>
+    <div>
+      <p><strong>Email:</strong> rujula.navale@example.com</p>
+      <p><strong>Phone:</strong> +91 98765 43210</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rujulanavale">linkedin.com/in/rujulanavale</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/rujula-navale">github.com/rujula-navale</a></p>
+    </div>
+  </section>
+</body>
+</html>
